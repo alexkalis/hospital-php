@@ -1,0 +1,60 @@
+<?php
+function getSpecie($id)
+{
+	$db = openDatabaseConnection();
+	$sql = "SELECT * FROM species WHERE species_id = :id";
+	$query = $db->prepare($sql);
+	$query->execute(array(":id" => $id));
+	$db = null;
+	return $query->fetch();
+}
+function getAllSpecies()
+	{
+	$db = openDatabaseConnection();
+	$sql = "SELECT * FROM species";
+	$query = $db->prepare($sql);
+	$query->execute();
+	$db = null;	
+	return $query->fetchAll();
+}
+
+
+
+function editSpecies($id)
+{
+	$description = isset($_POST['description']) ? $_POST['description'] : null;
+
+	if (strlen($description) == 0) 
+	{
+		return false;
+	}
+	$db = openDatabaseConnection();
+	$sql = "UPDATE species	SET species_description = :description
+	id = :id";
+	$query = $db-> prepare($sql);
+	$query->execute(array(
+
+	':patient' => $patient_name,
+	':status' => $patient_status,
+	':id' => $patient_id
+		));
+	$db = null;
+
+	return true;
+}
+function deleteSpecies($id = null)
+{
+	if (!$id) {
+		return false;	
+	}
+$db = openDatabaseConnection();
+	$sql = "DELETE FROM species WHERE species_id = :id";
+	$query = $db->prepare($sql);
+	$query->execute(array(
+		':id' => $id));
+	$db = null;
+	
+	return true;
+}
+
+

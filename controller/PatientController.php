@@ -1,9 +1,10 @@
 <?php
-require(ROOT. "model/PatientModel.php");
-
+require(ROOT . "model/PatientModel.php");
+require(ROOT . "model/HospitalModel.php");
 function index() 
 {
 	render ("patient/index" , array (
+		'species' => getallspecie(),
 		'patients' => getAllPatients()
 		));
 }

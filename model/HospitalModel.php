@@ -19,6 +19,16 @@ function getClient($id)
 	return $query->fetch();
 }
 
+function getallpatientsbyclient($id)
+{
+	$db = openDatabaseConnection();
+	$sql = "SELECT * FROM patients WHERE patient_id = :id";
+	$query = $db->prepare($sql);
+	$query->execute(array(":id" => $id));
+	$db = null;
+	return $query->fetch();
+}
+
 function editClient($id)
 {
 	$client_firstname = isset($_POST['client_firstname']) ? $_POST['client_firstname'] : null;
@@ -29,9 +39,7 @@ function editClient($id)
 		return false;
 	}
 	$db = openDatabaseConnection();
-	$sql = "UPDATE clients 	SET client_firstname = :firstname,
-	client_lastname = :lastname, 
-	id = :id";
+	$sql = "UPDATE clients 	SET client_firstname = :firstname,	client_lastname = :lastname WHERE client_id = :id";
 	$query = $db-> prepare($sql);
 	$query->execute(array(
 
@@ -49,7 +57,7 @@ function deleteClient($id = null)
 		return false;	
 	}
 $db = openDatabaseConnection();
-	$sql = "DELETE FROM birthdays WHERE client_id = :id ";
+	$sql = "DELETE FROM clients WHERE client_id = :id ";
 	$query = $db->prepare($sql);
 	$query->execute(array(
 		':id' => $id));
@@ -61,11 +69,11 @@ function createClient()
 {
 	$firstname = isset($_POST['firstname']) ? $_POST['firstname'] :null ;
 	$lastname = isset($_POST['lastname']) ? $_POST['lastname'] : null ;
-	if (strlen ($firstname) == 0 || strlen($lastname)) {
+	if (strlen ($firstname) == 0 || strlen($lastname) == 0 ) {
 		return false;
 	}
 	$db = openDatabaseConnection();						
-	$sql = "INSERT INTO clients(client_firstname, client_lastname) VALUES (:firstname, :lastname)";
+	$sql = "INSERT INTO clients (client_firstname, client_lastname) VALUES (:firstname, :lastname)";
 	$query = $db->prepare($sql);
 	$query->execute(array(
 		':firstname' => $firstname,

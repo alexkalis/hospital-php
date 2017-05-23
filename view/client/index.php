@@ -15,15 +15,16 @@
         <td><?= $client['client_id']; ?></td>
         <td><?= $client['client_firstname']; ?></td>
         <td><?= $client['client_lastname']; ?></td>
+     
 
-        <td><a href="<?= URL . '../patient/index/' . $client['client_id'] ?>">Patients</td>
+        <td><a href="<?= URL . 'patient/index/' . $patients['patient_id'] ?>">Patients</td>
         <td><a href="<?= URL . 'client/edit/' . $client['client_id'] ?>">Edit</a></td>
-        <td><a href="<?= URL . 'view/client/delete/' . $client['client_id'] ?>">Delete</a></td>
+        <td><a href="<?= URL . 'client/delete/' . $client['client_id'] ?>">Delete</a></td>
       </tr>
       <?php } ?>
 
     </table>
-    <a href="../view/client/create.php" class="button_index">Toevoegen</a>
+    <a href="client/create.php" class="button_index">Toevoegen</a>
 
   </div>
    

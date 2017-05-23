@@ -1,9 +1,11 @@
 <?php
 require(ROOT. "model/HospitalModel.php");
+require(ROOT. "model/PatientModel.php");	
 
 function index() 
 {
 	render ("client/index" , array (
+		'patients' => getallpatientsbyclient($id),
 		'clients' => getAllClients()
 		));
 }
