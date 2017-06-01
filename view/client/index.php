@@ -6,8 +6,8 @@
         <th id="table">Voornaam</th>
         <th id="table">Achternaam</th>
         <th colspan="3">Actie</th>
-        
-      </tr> 
+          
+      </tr>   
         
       <?php 
        foreach ($clients as $client) { ?>
@@ -15,16 +15,17 @@
         <td><?= $client['client_id']; ?></td>
         <td><?= $client['client_firstname']; ?></td>
         <td><?= $client['client_lastname']; ?></td>
+
      
 
-        <td><a href="<?= URL . 'patient/index/' . $patients['patient_id'] ?>">Patients</td>
+        <td><a href="<?= URL . 'patient/index/' . $client['client_id'] ?>">Patients</td>
         <td><a href="<?= URL . 'client/edit/' . $client['client_id'] ?>">Edit</a></td>
         <td><a href="<?= URL . 'client/delete/' . $client['client_id'] ?>">Delete</a></td>
       </tr>
       <?php } ?>
 
     </table>
-    <a href="client/create.php" class="button_index">Toevoegen</a>
+    <a href="client/create/" class="button_index">Toevoegen</a>
 
   </div>
    

@@ -23,20 +23,18 @@ function getAllSpecies()
 function editSpecies($id)
 {
 	$description = isset($_POST['description']) ? $_POST['description'] : null;
-
+	$id = isset($_POST['id']) ? $_POST['id'] : null;
+	
 	if (strlen($description) == 0) 
 	{
 		return false;
 	}
 	$db = openDatabaseConnection();
-	$sql = "UPDATE species	SET species_description = :description
-	id = :id";
+	$sql = "UPDATE species SET species_description = :description WHERE species_id = :id";
 	$query = $db-> prepare($sql);
 	$query->execute(array(
-
-	':patient' => $patient_name,
-	':status' => $patient_status,
-	':id' => $patient_id
+	':description' => $description,
+	':id' => $id
 		));
 	$db = null;
 
@@ -56,5 +54,23 @@ $db = openDatabaseConnection();
 	
 	return true;
 }
+function createSpecies()
+{
+	$description = isset($_POST['description']) ? $_POST['description'] :null ;
+
+	if (strlen ($description) == 0 ) {
+		return false;
+	}
+	$db = openDatabaseConnection();						
+	$sql = "INSERT INTO species (species_description) VALUES (:description)";
+	$query = $db->prepare($sql);
+	$query->execute(array(
+		':description' => $description));
+	$db = null;
+	
+	return true;
+}
+
+
 
 

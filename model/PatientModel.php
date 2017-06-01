@@ -27,6 +27,16 @@ function getallspecie()
 	return $query->fetchAll();
 }
 
+function getspecieid()
+{
+	$db = openDatabaseConnection();
+	$sql = "SELECT species_id FROM species";
+	$query = $db->prepare($sql);
+	$query->execute();
+	$db = null;	
+	return $query->fetchAll();
+}
+
 function editPatient($id)
 {
 	$patient_name = isset($_POST['patient_name']) ? $_POST['patient_name'] : null;

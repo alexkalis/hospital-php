@@ -20,7 +20,7 @@
       <?php } ?>
 
     </table>
-    <a href="../view/species/create.php" class="button_index">Toevoegen</a>
+    <a href="species/create/" class="button_index">Toevoegen</a>
 
   </div>
    

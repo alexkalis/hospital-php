@@ -16,7 +16,7 @@ function create()
 
 function createSave()
 {
-	if (!createPatient()) {
+	if (!createSpecies()) {
 		header("location:" . URL . "error/index" );
 		exit();
 	}

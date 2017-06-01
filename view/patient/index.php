@@ -27,7 +27,7 @@
       <?php } ?>
 
     </table>
-    <a href="create.php" class="button_index">Toevoegen</a>
+    <a href="create/" class="button_index">Toevoegen</a>
 
   </div>
    

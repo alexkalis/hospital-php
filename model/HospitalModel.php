@@ -6,7 +6,7 @@ function getAllClients()
 	$query = $db->prepare($sql);
 	$query->execute();
 	$db = null;	
-	return $query->fetchAll();
+	return $query->fetchAll();	
 }
 
 function getClient($id)
@@ -22,19 +22,21 @@ function getClient($id)
 function getallpatientsbyclient($id)
 {
 	$db = openDatabaseConnection();
-	$sql = "SELECT * FROM patients WHERE patient_id = :id";
+	$sql = "SELECT * FROM patients WHERE patient_name = :name";
 	$query = $db->prepare($sql);
-	$query->execute(array(":id" => $id));
+	$query->execute(array(":name" => $name));
 	$db = null;
 	return $query->fetch();
 }
 
 function editClient($id)
 {
-	$client_firstname = isset($_POST['client_firstname']) ? $_POST['client_firstname'] : null;
-	$client_lastname = isset($_POST['client_lastname']) ? $_POST['client_lastname'] : null ;
-	$client_id = isset($_POST ['client_id']) ? $_POST['client_id']: null;
-	if (strlen($client_firstname) == 0 || strlen($client_lastname) == 0) 
+	$firstname = isset($_POST['firstname']) ? $_POST['firstname'] : null;
+	$lastname = isset($_POST['lastname']) ? $_POST['lastname'] : null ;
+	$id = isset($_POST ['id']) ? $_POST['id']: null;
+
+
+	if (strlen($firstname) == 0 || strlen($lastname) == 0) 
 	{
 		return false;
 	}
@@ -43,14 +45,15 @@ function editClient($id)
 	$query = $db-> prepare($sql);
 	$query->execute(array(
 
-	':firstname' => $client_firstname,
-	':lastname' => $client_lastname,
-	':id' => $client_id
+	':firstname' => $firstname,
+	':lastname' => $lastname,
+	':id' => $id
 		));
 	$db = null;
 
 	return true;
 }
+
 function deleteClient($id = null)
 {
 	if (!$id) {
