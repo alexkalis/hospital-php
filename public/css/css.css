@@ -1,0 +1,46 @@
+<style type="text/css">
+		table{	color: white;	}
+		th {	background-color: #E64A19; color: white;	}
+		a:visited {	color: white #;	 }	
+		a {	color: #7f7fe6; padding-right: 20px; }
+		table, td, th {    
+	    border: 1px solid #ddd;
+	    text-align: left;
+		}
+
+		table {
+	    border-collapse: collapse;
+	    width: 100%;
+		}
+		td {
+			color: white;
+		}
+		th, td {
+	    padding: 15px;
+		}
+
+		.button {
+	    background-color: #008CBA; 
+	    border: none;
+	    color: white;
+	    padding: 16px 32px;
+	    text-align: center;
+	    text-decoration: none;
+	    display: inline-block;
+	    font-size: 16px;
+	    margin: 2px 0px;
+	    -webkit-transition-duration: 0.4s; 
+	    transition-duration: 0.4s;
+	    cursor: pointer;
+	}
+
+.button:hover {
+    background-color: #008CBA; 
+    color: black; 
+    border: 1px solid white;
+}
+
+.button {
+    background-color: #008CBA;
+    color: white;
+}

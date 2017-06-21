@@ -1,8 +1,8 @@
-<?php
+	<?php
 function getAllClients()
 	{
 	$db = openDatabaseConnection();
-	$sql = "SELECT * FROM clients";
+	$sql = "SELECT * FROM clients ORDER BY client_id";
 	$query = $db->prepare($sql);
 	$query->execute();
 	$db = null;	
@@ -22,9 +22,12 @@ function getClient($id)
 function getallpatientsbyclient($id)
 {
 	$db = openDatabaseConnection();
-	$sql = "SELECT * FROM patients WHERE patient_name = :name";
+	$sql = "SELECT * FROM patients WHERE patient_name = :name , patient_id = :id";
 	$query = $db->prepare($sql);
-	$query->execute(array(":name" => $name));
+	$query->execute(array(
+
+		":name" => $name,
+		"id"=> $id));
 	$db = null;
 	return $query->fetch();
 }
@@ -85,4 +88,3 @@ function createClient()
 	
 	return true;
 }
-

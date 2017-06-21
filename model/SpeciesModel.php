@@ -11,14 +11,12 @@ function getSpecie($id)
 function getAllSpecies()
 	{
 	$db = openDatabaseConnection();
-	$sql = "SELECT * FROM species";
+	$sql = "SELECT * FROM species ORDER BY species_id";
 	$query = $db->prepare($sql);
 	$query->execute();
 	$db = null;	
 	return $query->fetchAll();
 }
-
-
 
 function editSpecies($id)
 {

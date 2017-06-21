@@ -16,8 +16,6 @@
         <td><?= $client['client_firstname']; ?></td>
         <td><?= $client['client_lastname']; ?></td>
 
-     
-
         <td><a href="<?= URL . 'patient/index/' . $client['client_id'] ?>">Patients</td>
         <td><a href="<?= URL . 'client/edit/' . $client['client_id'] ?>">Edit</a></td>
         <td><a href="<?= URL . 'client/delete/' . $client['client_id'] ?>">Delete</a></td>
@@ -25,10 +23,8 @@
       <?php } ?>
 
     </table>
-    <a href="client/create/" class="button_index">Toevoegen</a>
+<a class="button" href="<?= URL . 'client/create/'?>" >toevoegen</a>    
 
-  </div>
-   
-  
+  </div>  
   </body>
 </html>

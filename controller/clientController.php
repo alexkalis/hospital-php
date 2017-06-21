@@ -14,6 +14,7 @@ function create()
 	render("client/create");
 }
 
+
 function createSave()
 {
 	if (!createClient()) {
@@ -44,4 +45,8 @@ function delete($id)
 		exit();
 	}
 	header("Location:" . URL . "client/index");
+}
+function patientByClient ($id)
+{
+	render('');
 }

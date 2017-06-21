@@ -27,13 +27,13 @@ function route()
 
 		} else {
 			require(ROOT . 'controller/ErrorController.php');
-			call_user_func('error');
+			call_user_func('index');
 		}
 
 	} else {
 	
 		require(ROOT . 'controller/ErrorController.php');
-		call_user_func('error');
+		call_user_func('index');
 	
 	}
 }

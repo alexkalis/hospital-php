@@ -20,10 +20,5 @@
       <?php } ?>
 
     </table>
-    <a href="species/create/" class="button_index">Toevoegen</a>
-
-  </div>
-   
-  
-  </body>
-</html>
+    <a class="button" href="<?= URL . 'species/create/'?>">toevoegen</a>
+  </div> 

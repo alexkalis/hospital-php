@@ -4,14 +4,16 @@ require(ROOT . "model/HospitalModel.php");
 function index() 
 {
 	render ("patient/index" , array (
-		'species' => getallspecie(),
-		'patients' => getAllPatients()
+		
+		'patients' => getPatientsWithSpeciesDescription()
 		));
 }
 
 function create()
 {
-	render("patient/create");
+	render("patient/create" , array (
+		'clients' => createClientList()
+		));
 }
 
 function createSave()
@@ -29,9 +31,9 @@ function edit($id)
 		'patient' => getPatient($id)
 		));
 }
-function editSave()
+function editSave($id)
 {
-	if (!editPatient()) {
+	if (!editPatient($id)) {
 		header("Location:" . URL . "error/index");
 		exit();
 	}

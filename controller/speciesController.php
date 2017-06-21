@@ -37,6 +37,8 @@ function editSave()
 	}
 	header("Location:" . URL . "species/index");
 }	
+
+
 function delete($id)
 {
 	if (!deleteSpecies($id)) {
