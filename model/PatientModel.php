@@ -77,7 +77,7 @@ function createPatient()
 	$species_id = isset($_POST['species_id']) ? $_POST['species_id'] : null ;
 
 
-	if (strlen ($name) == 0 || strlen($status) == 0  	) {
+	if (strlen ($name) == 0 || strlen($status) == 0 ) {
 		return false;
 	}
 	$db = openDatabaseConnection();						
@@ -85,9 +85,9 @@ function createPatient()
 	$query = $db->prepare($sql);
 	$query->execute(array(
 		':name' => $name,
+		':status' => $status,
 		':client_id' => $client_id,
-		':species_id' => $species_id,
-		':status' => $status));
+		':species_id' => $species_id));
 	$db = null;
 	
 	return true;
@@ -104,23 +104,4 @@ $query->execute();
 $db = null;
 
 return $query->fetchAll();
-}
-
-function patientsCreateDropdownClient()
-{
-	$db = openDatabaseConnection();
-	$sql = "SELECT client_id FROM patients";
-	$query = $db->prepare($sql);
-	$query->execute();
-
-	$db = null;
-}
-function patientsCreateDropdownSpecies()
-{
-	$db = openDatabaseConnection();
-	$sql = "SELECT species_id FROM patients";
-	$query = $db->prepare($sql);
-	$query->execute();
-
-	$db = null;
 }

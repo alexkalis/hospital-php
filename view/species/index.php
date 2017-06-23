@@ -1,4 +1,4 @@
-<body style="background-color: brown">
+    <a class="button" href="<?= URL . 'species/create/'?>">toevoegen</a><body style="background-color: brown">
 <div class="container">
 <table border="1">
       <tr>
@@ -20,5 +20,5 @@
       <?php } ?>
 
     </table>
-    <a class="button" href="<?= URL . 'species/create/'?>">toevoegen</a>
+
   </div> 

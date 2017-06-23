@@ -29,9 +29,11 @@
 	    display: inline-block;
 	    font-size: 16px;
 	    margin: 2px 0px;
+	    margin-bottom: 10px;
 	    -webkit-transition-duration: 0.4s; 
 	    transition-duration: 0.4s;
 	    cursor: pointer;
+	     border: 1px solid black;
 	}
 
 .button:hover {
@@ -43,4 +45,7 @@
 .button {
     background-color: #008CBA;
     color: white;
+}
+h3 {
+	margin-left: 5px;
 }

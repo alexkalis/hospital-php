@@ -1,3 +1,4 @@
+<a class="button" href="<?= URL . 'client/create/'?>" >toevoegen</a>
 <body style="background-color: brown">
 <div class="container">
 <table border="1">
@@ -23,7 +24,7 @@
       <?php } ?>
 
     </table>
-<a class="button" href="<?= URL . 'client/create/'?>" >toevoegen</a>    
+
 
   </div>  
   </body>

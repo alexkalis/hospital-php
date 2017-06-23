@@ -1,3 +1,4 @@
+<a class="button" href="<?= URL . 'patient/create/'?>">toevoegen</a><h3 class="button">U bent nu bij de patienten tabel.</h3>
 <div class="container">
 
 <table border="1">
@@ -32,7 +33,7 @@
       <?php } ?>
 
 </table>
-<a class="button" href="<?= URL . 'patient/create/'?>">toevoegen</a>    
+
 
 </div>
     
